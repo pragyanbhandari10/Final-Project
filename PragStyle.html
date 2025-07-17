@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PragStyle | Premium Shoes & Goggles</title>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6a5acd;
+            --primary-light: #9a8cef;
+            --secondary: #f8f9fa;
+            --accent: #ff6347;
+            --text: #333;
+            --text-light: #777;
+            --light: #fff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background-color: var(--secondary);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--primary-light);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 1.5rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(106, 90, 205, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background-color: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 800px;
+            z-index: 1;
+            animation: fadeInRight 1.5s ease;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Featured Section */
+        .featured-section {
+            padding: 5rem 5%;
+            background-color: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            color: var(--primary-light);
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .product-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .add-to-cart {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--primary-light);
+            transform: scale(1.1);
+        }
+
+        /* Categories Section */
+        .categories-section {
+            padding: 5rem 5%;
+            text-align: center;
+            background-color: var(--secondary);
+            display: block;
+        }
+        .categories-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .category-card {
+            flex: 0 1 250px;
+            max-width: 300px;
+        }
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .category-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-image {
+            height: 180px;
+            position: relative;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-info {
+            padding: 1.5rem;
+        }
+
+        .category-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .category-info p {
+            color: var(--text-light);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 5rem 5%;
+            background-color: var(--light);
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonials-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            margin-top: 3rem;
+            gap: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .testimonial-card {
+            min-width: 350px;
+            scroll-snap-align: start;
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .newsletter-section .section-header h2 {
+            color: white;
+        }
+
+        .newsletter-section .section-header h2::after {
+            background-color: white;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 2rem auto 0;
+            background-color: white;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #ff4500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2a2a2a;
+            color: white;
+            padding: 5rem 5% 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-col p {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-image {
+                width: 45%;
+                right: 2%;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 1rem 5%;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 5rem;
+                height: auto;
+                padding-bottom: 3rem;
+            }
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 3rem;
+            }
+            .hero-image {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            nav ul {
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: 15px;
+            }
+            .newsletter-input {
+                width: 100%;
+                border-radius: 15px 15px 0 0;
+            }
+            .newsletter-btn {
+                border-radius: 0 0 15px 15px;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">Prag<span>Style</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="btn btn-primary" style="padding: 0.4rem 1.2rem; border-radius: 20px;"><i class="bi bi-house-door"></i> Home</a></li>
+                    <li><a href="#shop" class="btn btn-primary" style="padding: 0.4rem 1.2rem; border-radius: 20px;">
+                            <i class="bi bi-shop"></i> Shop</a></li>
+
+                    <li>
+                        <a href="#new-arrivals" class="btn btn-primary" style="padding: 0.4rem 1.2rem; border-radius: 20px;">
+                            <i class="bi bi-stars"></i> New Arrivals
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#all-shoes" class="btn btn-primary" class="cart-icon" style="padding: 0.4rem 1.2rem; border-radius: 20px;">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-count">3</span>
+                        </a>
+                    </li>
+
+                    <li><a href="#contact" class="btn btn-primary" style="padding: 0.4rem 1.2rem; border-radius: 20px;">
+                            <i class="bi bi-telephone"></i> Contact</a></li>
+                
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Step Up Your <span>Style Game</span> With Premium Footwear</h1>
+            <p>Discover our exclusive collection of designer shoes and goggles that blend comfort, quality and cutting-edge fashion for every occasion.</p>
+            <div class="hero-buttons">
+                <a href="#trending" class="btn btn-primary" onclick="event.preventDefault();document.querySelector('#trending').scrollIntoView({behavior:'smooth'});">Shop Now <i class="bi bi-arrow-right"></i></a>
+                <a href="#all-gogs" class="btn btn-outline" onclick="event.preventDefault();document.querySelector('#all-gogs').scrollIntoView({behavior:'smooth'});">Explore More</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="1st_fashion.png" alt="Modern shoe display with floating sneakers and sunglasses in a minimalist aesthetic studio setting with soft lighting">
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-section" id="trending">
+        <div class="section-header">
+            <h2>Top Trending</h2>
+            <p>Check out our most popular picks this season that are flying off the shelves</p>
+        </div>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">Bestseller</span>
+                    <img src="Cloud_strike.png" alt="White premium leather sneakers with blue minimalist accents on a wooden table">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Sneakers</span>
+                    <h3 class="product-title">Cloud Stride X</h3>
+                    <p class="product-description">Ultra-lightweight with responsive cushioning for all-day comfort.</p>
+                    <div class="product-price">
+                        <span class="price">$129.99</span>
+                        <button class="add-to-cart"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">Exclusive</span>
+                    <img src="midnight_avi.png" alt="Black Aviator sunglasses with gold mirror lenses on luxury marble background">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Goggles</span>
+                    <h3 class="product-title">Midnight Aviators</h3>
+                    <p class="product-description">Polarized lenses with UV400 protection and 100% glare reduction.</p>
+                    <div class="product-price">
+                        <span class="price">$89.99</span>
+                        <button class="add-to-cart"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="trailblazer.png" alt="Brown leather boots with rugged sole on wooden background">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Boots</span>
+                    <h3 class="product-title">Trailblazer Pro</h3>
+                    <p class="product-description">Waterproof hiking boots with advanced ankle support technology.</p>
+                    <div class="product-price">
+                        <span class="price">$159.99</span>
+                        <button class="add-to-cart"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="hyder_flex.png" alt="Sporty blue framed goggles with yellow lenses on a gym bag">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Goggles</span>
+                    <h3 class="product-title">Hydro Flex</h3>
+                    <p class="product-description">Swim goggles with anti-fog coating and ultra-soft silicone seal.</p>
+                    <div class="product-price">
+                        <span class="price">$49.99</span>
+                        <button class="add-to-cart"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section" id="shop">
+        <div class="section-header">
+            <h2>Shop By Category</h2>
+            <p>Find exactly what you're looking for in our specialized collections</p>
+        </div>
+        <div class="categories-grid">
+            <!-- Category 1 -->
+            <div class="category-card">
+                <div class="category-image">
+                    <img src="athletic_shoe.png" alt="Collection of running shoes displayed in a grid formation">
+                </div>
+                <div class="category-info">
+                    <h3>Athletic Shoes</h3>
+                    <p>Performance footwear for every sport</p>
+                </div>
+            </div>
+            
+            <!-- Category 2 -->
+            <div class="category-card">
+                <div class="category-image">
+                    <img src="casual_wear.png" alt="Casual sneakers and slip-ons arranged casually in pastel tones">
+                </div>
+                <div class="category-info">
+                    <h3>Casual Wear</h3>
+                    <p>Everyday comfort meets street style</p>
+                </div>
+            </div>
+            
+            <!-- Category 3 -->
+            <div class="category-card">
+                <div class="category-image">
+                    <img src="formal_footwear.png" alt="Luxury leather shoes on mirrored display with warm lighting">
+                </div>
+                <div class="category-info">
+                    <h3>Formal Footwear</h3>
+                    <p>Sophisticated styles for special occasions</p>
+                </div>
+            </div>
+            
+            <!-- Category 4 -->
+            <div class="category-card">
+                <div class="category-image">
+                    <img src="premium_goggs.png" alt="Designer sunglasses arranged by color gradient on a glass table">
+                </div>
+                <div class="category-info">
+                    <h3>Premium Goggles</h3>
+                    <p>See the world in style</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Products Section -->
+    <section class="featured-section" id="new-arrivals">
+        <div class="section-header">
+            <h2>New Arrivals</h2>
+            <p>Fresh styles just added to our collection</p>
+        </div>
+        <div class="products-grid">
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">New</span>
+                    <img src="retor_blaze.png" alt="Retro-inspired high-top sneakers in red and white with vintage details">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Sneakers</span>
+                    <h3 class="product-title">Retro Blaze</h3>
+                    <p class="product-description">Vintage style meets modern comfort technology.</p>
+                    <div class="product-price">
+                        <span class="price">$119.99</span>
+                        <button class="add-to-cart"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">Limited</span>
+                    <img src="eclipse.png" alt="Black designer sunglasses with silver frame details on a dark background">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Goggles</span>
+                    <h3 class="product-title">Eclipse</h3>
+                    <p class="product-description">Carbon fiber frames with gradient lenses.</p>
+                    <div class="product-price">
+                        <span class="price">$149.99</span>
+                        <button class="add-to-cart"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="pure_air.png" alt="White minimalist sneakers with transparent sole detail on a light background">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Sneakers</span>
+                    <h3 class="product-title">Pure Air</h3>
+                    <p class="product-description">Breathable mesh with innovative sole technology.</p>
+                    <div class="product-price">
+                        <span class="price">$109.99</span>
+                        <button class="add-to-cart"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="velocity_x1.png" alt="Sporty orange cycling glasses with interchangeable lenses">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Goggles</span>
+                    <h3 class="product-title">Velocity X1</h3>
+                    <p class="product-description">Aerodynamic design for cyclists and runners.</p>
+                    <div class="product-price">
+                        <span class="price">$79.99</span>
+                        <button class="add-to-cart"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Shoes Section with JavaScript-generated products -->
+    <section class="featured-section" id="all-shoes">
+        <div class="section-header">
+            <h2>Our Shoe Collection</h2>
+            <p>Browse our complete selection of premium footwear</p>
+        </div>
+        <div class="products-grid" id="shoes-container">
+            <!-- JavaScript will populate this section -->
+        </div>
+    </section>
+
+    <!-- All Goggles Section with JavaScript-generated products -->
+    <section class="featured-section" id="all-gogs">
+        <div class="section-header">
+            <h2>Goggles Collection</h2>
+            <p>Protect your eyes in style with our designer eyewear</p>
+        </div>
+        <div class="products-grid" id="gogs-container">
+            <!-- JavaScript will populate this section -->
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2>What Our Customers Say</h2>
+            <p>Don't just take our word for it - hear from our satisfied customers</p>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonials-slider">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "The Cloud Stride sneakers are the most comfortable shoes I've ever worn! I've already bought two pairs in different colors. PragStyle's customer service is exceptional too."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="sarah johnson.png" alt="Portrait of a happy woman with curly hair smiling">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "As a competitive cyclist, I'm very particular about my eyewear. The Velocity X1 goggles provide perfect clarity and stay securely in place even during intense rides. Five stars!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="michael.png" alt="Portrait of an athletic man wearing a cycling helmet">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Professional Cyclist</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "I bought the Midnight Aviators for my beach vacation and they exceeded all expectations. The polarization is perfect and they're so lightweight I forget I'm wearing them!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="david wilson.png" alt="Portrait of a young man with sunglasses on a sunny beach">
+                        </div>
+                        <div class="author-info">
+                            <h4>David Wilson</h4>
+                            <p>Fashion Blogger</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section" id="contact">
+        <div class="newsletter-container">
+            <div class="section-header">
+                <h2>Join Our Community</h2>
+                <p>Subscribe to get exclusive offers, early access to new releases, and style tips</p>
+            </div>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>PragStyle</h3>
+                <p>Elevating your footwear and eyewear game with premium, stylish options that don't compromise on comfort or quality.</p>
+                <div class="social-links">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Shop</h3>
+                <ul class="footer-links">
+                    <li><a href="#">All Shoes</a></li>
+                    <li><a href="#">Men's Footwear</a></li>
+                    <li><a href="#">Women's Footwear</a></li>
+                    <li><a href="#">Kids' Collection</a></li>
+                    <li><a href="#">Goggles & Eyewear</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Help</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Payment Options</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p><i class="bi bi-geo-alt"></i> 123 PragStyle Store, Kathmandu, Baneshwor 110</p>
+                <p><i class="bi bi-telephone"></i> +977-982346781</p>
+                <p><i class="bi bi-envelope"></i> ncit@pragstyle.com</p>
+                <p><i class="bi bi-clock"></i> Mon-Fri: 9AM - 8PM</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 PragStyle. All Rights Reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script>
+        // Product data for shoes
+        const shoes = [
+            { id: 1, name: "Urban Trekker", category: "Sneakers", price: 99.99, image: "sneakers_urbantekker.jpg", description: "Street-ready sneakers with rugged soles", badge: "Bestseller" },
+            { id: 2, name: "Marathon Pro", category: "Running", price: 129.99, image: "marathonn_pro.png", description: "High-performance running shoes with energy return", badge: null },
+            { id: 3, name: "Boardwalk Elite", category: "Casual", price: 89.99, image: "casual_canvas.jpg", description: "Canvas shoes with memory foam insoles", badge: null },
+            { id: 4, name: "Summit 7", category: "Hiking", price: 149.99, image: "summit_7.png", description: "Waterproof hiking boots with Vibram soles", badge: "New" },
+            { id: 5, name: "Classic Oxford", category: "Formal", price: 119.99, image: "https://placehold.co/600x400", description: "Handcrafted leather shoes for the office", badge: null },
+            { id: 6, name: "Jet Setter", category: "Sneakers", price: 109.99, image: "https://placehold.co/600x400", description: "Slip-resistant outsoles for travel comfort", badge: null },
+            { id: 7, name: "Air Lite 3.0", category: "Running", price: 139.99, image: "air_lite3.png", description: "Featherlight racing shoes with carbon plate", badge: "Limited" },
+            { id: 8, name: "Heritage Low", category: "Casual", price: 79.99, image: "https://placehold.co/600x400", description: "Retro-inspired sneakers with modern comfort", badge: null },
+            { id: 9, name: "Traverse GTX", category: "Hiking", price: 169.99, image: "https://placehold.co/600x400", description: "Gore-Tex waterproof mid boots", badge: null },
+            { id: 10, name: "Executive", category: "Formal", price: 129.99, image: "https://placehold.co/600x400", description: "Italian leather with cushioned arch support", badge: null },
+            { id: 11, name: "City Explorer", category: "Sneakers", price: 94.99, image: "https://placehold.co/600x400", description: "All-day comfort with stylish urban appeal", badge: null },
+            { id: 12, name: "Endorphin Speed", category: "Running", price: 159.99, image: "https://placehold.co/600x400", description: "Record-breaking marathon shoe technology", badge: "New" },
+            { id: 13, name: "Canvas Slip-On", category: "Casual", price: 69.99, image: "https://placehold.co/600x400", description: "Easy-on style with padded collars", badge: null },
+            { id: 14, name: "Alpine Pro", category: "Hiking", price: 179.99, image: "https://placehold.co/600x400", description: "Mountaineering boots with insulation", badge: null },
+            { id: 15, name: "Wingtip", category: "Formal", price: 149.99, image: "https://placehold.co/600x400", description: "Classic brogue detailing with modern fit", badge: null },
+            { id: 16, name: "Skate Pro II", category: "Sneakers", price: 89.99, image: "https://placehold.co/600x400", description: "Reinforced toe caps for durability", badge: null },
+            { id: 17, name: "Tempo Next%", category: "Running", price: 199.99, image: "running_tempoZmX.jpg", description: "Competition-ready with ZoomX foam", badge: "Bestseller" },
+            { id: 18, name: "Slipstream", category: "Casual", price: 79.99, image: "https://placehold.co/600x400", description: "Breathable knit with responsive cushioning", badge: null },
+            { id: 19, name: "Trail Master", category: "Hiking", price: 159.99, image: "https://placehold.co/600x400", description: "Aggressive tread for technical terrain", badge: null },
+            { id: 20, name: "Derby Shine", category: "Formal", price: 139.99, image: "https://placehold.co/600x400", description: "Polished leather with sleek silhouette", badge: "New" },
+            { id: 21, name: "Chunky Runner", category: "Sneakers", price: 119.99, image: "https://placehold.co/600x400", description: "90s-inspired design with modern tech", badge: null },
+            { id: 22, name: "VaporFly", category: "Running", price: 229.99, image: "https://placehold.co/600x400", description: "World-record breaking racing shoe", badge: "Limited" },
+            { id: 23, name: "Weekender", category: "Casual", price: 89.99, image: "https://placehold.co/600x400", description: "Slip-resistant soles for all surfaces", badge: null },
+            { id: 24, name: "Canyon Hiker", category: "Hiking", price: 149.99, image: "https://placehold.co/600x400", description: "Ankle support with flexible forefoot", badge: null },
+            { id: 25, name: "Tassel Loafer", category: "Formal", price: 129.99, image: "https://placehold.co/600x400", description: "Genuine leather with tassel detail", badge: null },
+            { id: 26, name: "90s Throwback", category: "Sneakers", price: 109.99, image: "https://placehold.co/600x400", description: "Retro colorways with modern comfort", badge: null },
+            { id: 27, name: "Racing Elite", category: "Running", price: 179.99, image: "https://placehold.co/600x400", description: "Carbon fiber plate for explosive speed", badge: "New" },
+            { id: 28, name: "Espadrille", category: "Casual", price: 59.99, image: "https://placehold.co/600x400", description: "Lightweight summer shoes with jute soles", badge: null },
+            { id: 29, name: "Trailblazer Air", category: "Hiking", price: 169.99, image: "https://placehold.co/600x400", description: "Ventilated mesh for breathability", badge: null },
+            { id: 30, name: "Cap Toe", category: "Formal", price: 159.99, image: "https://placehold.co/600x400", description: "Hand-stitched leather with cap toe", badge: "Exclusive" }
+        ];
+
+        // Product data for goggles
+        const goggles = [
+            { id: 31, name: "Solar Shield", category: "Sport", price: 69.99, image: "sportSolar_shield.jpg", description: "Interchangeable lenses for all conditions", badge: null },
+            { id: 32, name: "Polar Wave", category: "Casual", price: 89.99, image: "polar_wave.png", description: "Polarized lenses reduce glare by 99%", badge: "Bestseller" },
+            { id: 33, name: "Aero Lens", category: "Sport", price: 109.99, image: "sport_aeroLens.jpg", description: "Aerodynamic design for cyclists", badge: null },
+            { id: 34, name: "Metal Frame", category: "Casual", price: 129.99, image: "causal_metal.jpg", description: "Minimalist titanium frames", badge: null },
+            { id: 35, name: "Hydro Flex Pro", category: "Swim", price: 49.99, image: "swim_hydroFlex.jpg", description: "Leak-proof with 180° vision", badge: null },
+            { id: 36, name: "Retro Round", category: "Casual", price: 79.99, image: "retro_round80's.jpg", description: "60s inspired with modern lenses", badge: "New" },
+            { id: 37, name: "Tactical X", category: "Sport", price: 119.99, image: "sport_tactical.jpg", description: "Impact resistant for extreme sports", badge: null },
+            { id: 38, name: "Cateye", category: "Casual", price: 99.99, image: "cateye_feminine.jpg", description: "Feminine frames with UV protection", badge: null },
+            { id: 39, name: "Speedglass", category: "Sport", price: 149.99, image: "speed_glass.jpg", description: "Wraparound design for cyclists", badge: null },
+            { id: 40, name: "Transcend", category: "Casual", price: 159.99, image: "transcend_adaptLight.jpg", description: "Photochromic lenses adapt to light", badge: "Limited" },
+            { id: 41, name: "Flex Seal", category: "Swim", price: 59.99, image: "swim_flex.avif", description: "Soft silicone gaskets prevent leaks", badge: null },
+            { id: 42, name: "Square Frame", category: "Casual", price: 139.99, image: "square_framee.avif", description: "Bold geometric silhouette", badge: null },
+            { id: 43, name: "Trail Sight", category: "Sport", price: 99.99, image: "trail_sight.jpg", description: "Enhanced contrast for trail running", badge: "New" },
+            { id: 44, name: "Clubmaster", category: "Casual", price: 119.99, image: "clubmaster_classic.webp", description: "Classic design with modern upgrades", badge: null },
+            { id: 45, name: "Hydro Clear", category: "Swim", price: 69.99, image: "swim_hydro_anti-fog.webp", description: "Anti-fog coating and UV protection", badge: null },
+            { id: 46, name: "Oversized", category: "Casual", price: 109.99, image: "casual_1980's.jpg", description: "1980s inspired statement frames", badge: null },
+            { id: 47, name: "Bike Pro", category: "Sport", price: 129.99, image: "Bike_proAntiFog.jpg", description: "Ventilation to prevent fogging", badge: "Bestseller" },
+            { id: 48, name: "Round Metal", category: "Casual", price: 89.99, image: "lennon_inspired.jpeg", description: "John Lennon inspired frames", badge: null },
+            { id: 49, name: "Competition", category: "Swim", price: 79.99, image: "swim_comp_lowP.webp", description: "Low profile competitive swim goggles", badge: null },
+            { id: 50, name: "Aviator Pro", category: "Casual", price: 149.99, image: "aviator_proPilot.webp", description: "Pilot-style with premium lenses", badge: "Exclusive" }
+        ];
+
+        // Function to generate product cards
+        function generateProductCards(products, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            products.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-image">
+                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                        <img src="${product.image}" alt="${product.category} ${product.name} displayed on a clean white background with subtle shadow">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${product.category}</span>
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">
+                            <span class="price">$${product.price.toFixed(2)}</span>
+                            <button class="add-to-cart"><i class="bi bi-cart-plus"></i></button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Function to initialize the page
+        function initPage() {
+            generateProductCards(shoes, 'shoes-container');
+            generateProductCards(goggles, 'gogs-container');
+            
+            // Add click event for category cards
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Animation effect
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-10px)';
+                    }, 100);
+                    
+                    // In a real app, this would filter products
+                    console.log(`Category ${this.querySelector('h3').textContent} clicked`);
+                });
+            });
+            
+            // Add to cart functionality
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart') || e.target.closest('.add-to-cart')) {
+                    const btn = e.target.classList.contains('add-to-cart') ? e.target : e.target.closest('.add-to-cart');
+                    const productCard = btn.closest('.product-card');
+                    const productName = productCard.querySelector('.product-title').textContent;
+                    const productPrice = productCard.querySelector('.price').textContent;
+                    
+                    // Animation
+                    btn.style.transform = 'scale(1.3)';
+                    setTimeout(() => {
+                        btn.style.transform = 'scale(1)';
+                    }, 200);
+                    
+                    // Update cart count
+                    const cartCount = document.querySelector('.cart-count');
+                    let count = parseInt(cartCount.textContent);
+                    cartCount.textContent = count + 1;
+                    
+                    console.log(`Added ${productName} (${productPrice}) to cart`);
+                }
+            });
+            
+            // Smooth scroll for navigation
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('href');
+                    if (target && target.startsWith('#')) {
+                        document.querySelector(target).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize the page when loaded
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>
+
